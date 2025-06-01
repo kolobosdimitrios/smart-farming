@@ -14,6 +14,7 @@ public class SoilSensorReading extends SensorReading{
     
     private final float temperature;
     private final float moisture;
+    private final float pH;
 
     public SoilSensorReading(
             String deviceId,
@@ -21,11 +22,13 @@ public class SoilSensorReading extends SensorReading{
             int batteryLevel,
             Integer signalLevel,
             float temperature,
-            float moisture
+            float moisture,
+            float pH
     ) {
         super(deviceId, timestamp, batteryLevel, signalLevel);
         this.temperature = temperature;
         this.moisture = moisture;
+        this.pH = pH;
     }
 
     public float getTemperature() {
@@ -35,6 +38,12 @@ public class SoilSensorReading extends SensorReading{
     public float getMoisture() {
         return moisture;
     }
+
+    public float getpH() {
+        return pH;
+    }
+    
+    
     
     
     
