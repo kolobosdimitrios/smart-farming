@@ -21,33 +21,33 @@ import java.util.stream.Collectors;
  *
  * @author dimitrioskolovos
  */
-public class LocalSensoReadingRepositoryImpl implements SensorReadingRepository {
+public class LocalSensoReadingRepositoryImpl<T extends SensorReading> implements SensorReadingRepository<T> {
 
-    private final Map<String, List<SensorReading>> store = new ConcurrentHashMap<>(); //In memory db;
+    private final Map<String, List<T>> store = new ConcurrentHashMap<>(); //In memory db;
 
     @Override
-    public Result<Void> save(SensorReading reading) {
+    public Result<Void> save(T reading) {
         store.computeIfAbsent(reading.getDeviceId(), k -> new ArrayList<>()).add(reading);
         return Result.success(null);
     }
 
     @Override
-    public Result<Optional<SensorReading>> findLatestByDeviceId(String deviceId) {
-        Optional<SensorReading> latest = store.getOrDefault(deviceId, Collections.emptyList()).stream()
-                .max(Comparator.comparing(SensorReading::getTimestamp));
+    public Result<Optional<T>> findLatestByDeviceId(String deviceId) {
+        Optional<T> latest = store.getOrDefault(deviceId, Collections.emptyList()).stream()
+                .max(Comparator.comparing(T::getTimestamp));
         return Result.success(latest);
     }
 
     @Override
-    public Result<List<SensorReading>> findAllByDeviceIdAndTimeRange(String deviceId, Instant start, Instant end) {
-        List<SensorReading> results = store.getOrDefault(deviceId, Collections.emptyList()).stream()
+    public Result<List<T>> findAllByDeviceIdAndTimeRange(String deviceId, Instant start, Instant end) {
+        List<T> results = store.getOrDefault(deviceId, Collections.emptyList()).stream()
                 .filter(r -> !r.getTimestamp().isBefore(start) && !r.getTimestamp().isAfter(end))
                 .collect(Collectors.toList());
         return Result.success(results);
     }
 
     @Override
-    public Result<Boolean> exists(SensorReading reading) {
+    public Result<Boolean> exists(T reading) {
         Boolean exists = store.getOrDefault(reading.getDeviceId(), Collections.emptyList()).stream()
                 .anyMatch(r -> r.getTimestamp().equals(reading.getTimestamp()));
         return Result.success(exists);
