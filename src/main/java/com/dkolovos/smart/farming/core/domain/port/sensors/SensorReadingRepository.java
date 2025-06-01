@@ -15,13 +15,13 @@ import java.util.Optional;
  * @author dimitrioskolovos
  * This interface can be implemented by data sources like MySQL.
  */
-public interface SensorReadingRepository {
+public interface SensorReadingRepository<T extends SensorReading>{
 
-    Result<Void> save(SensorReading reading);
+    Result<Void> save(T reading);
 
-    Result<Optional<SensorReading>> findLatestByDeviceId(String deviceId);
+    Result<Optional<T>> findLatestByDeviceId(String deviceId);
 
-    Result<List<SensorReading>> findAllByDeviceIdAndTimeRange(String deviceId, Instant start, Instant end);
+    Result<List<T>> findAllByDeviceIdAndTimeRange(String deviceId, Instant start, Instant end);
 
-    Result<Boolean> exists(SensorReading reading);
+    Result<Boolean> exists(T reading);
 }

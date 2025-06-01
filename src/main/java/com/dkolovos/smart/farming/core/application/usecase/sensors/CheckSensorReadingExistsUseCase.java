@@ -12,15 +12,15 @@ import com.dkolovos.smart.farming.core.domain.port.sensors.SensorReadingReposito
  *
  * @author dimitrioskolovos
  */
-public class CheckSensorReadingExistsUseCase {
+public class CheckSensorReadingExistsUseCase<T extends SensorReading> {
 
-    private final SensorReadingRepository repository;
+    private final SensorReadingRepository<T> repository;
     
-    public CheckSensorReadingExistsUseCase(SensorReadingRepository repository) {
+    public CheckSensorReadingExistsUseCase(SensorReadingRepository<T> repository) {
         this.repository = repository;
     }
     
-    public Result<Boolean> execute(SensorReading reading) {
+    public Result<Boolean> execute(T reading) {
         try {
             return repository.exists(reading);
         } catch (Exception e) {

@@ -13,17 +13,17 @@ import java.util.Optional;
  *
  * @author dimitrioskolovos
  */
-public class GetLatestSensorReadingUseCase {
+public class GetLatestSensorReadingUseCase<T extends SensorReading>{
 
-    private final SensorReadingRepository repository;
+    private final SensorReadingRepository<T> repository;
 
-    public GetLatestSensorReadingUseCase(SensorReadingRepository repository) {
+    public GetLatestSensorReadingUseCase(SensorReadingRepository<T> repository) {
         this.repository = repository;
     }
 
-    public Result<SensorReading> execute(String deviceId) {
+    public Result<T> execute(String deviceId) {
         try {
-            Optional<SensorReading> result = repository.findLatestByDeviceId(deviceId).getData();
+            Optional<T> result = repository.findLatestByDeviceId(deviceId).getData();
             if (result.isPresent()) {
                 return Result.success(result.get());
             } else {

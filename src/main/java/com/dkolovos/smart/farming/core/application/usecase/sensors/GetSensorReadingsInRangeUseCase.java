@@ -14,16 +14,16 @@ import java.util.List;
  *
  * @author dimitrioskolovos
  */
-public class GetSensorReadingsInRangeUseCase {
-    private final SensorReadingRepository repository;
+public class GetSensorReadingsInRangeUseCase<T extends SensorReading>{
+    private final SensorReadingRepository<T> repository;
 
-    public GetSensorReadingsInRangeUseCase(SensorReadingRepository repository) {
+    public GetSensorReadingsInRangeUseCase(SensorReadingRepository<T> repository) {
         this.repository = repository;
     }
 
-    public Result<List<SensorReading>> execute(String deviceId, Instant start, Instant end) {
+    public Result<List<T>> execute(String deviceId, Instant start, Instant end) {
         try{
-            List<SensorReading> result = repository.findAllByDeviceIdAndTimeRange(deviceId, start, end).getData();
+            List<T> result = repository.findAllByDeviceIdAndTimeRange(deviceId, start, end).getData();
             return Result.success(result);
         }catch(Exception e){
             return Result.failure(e);

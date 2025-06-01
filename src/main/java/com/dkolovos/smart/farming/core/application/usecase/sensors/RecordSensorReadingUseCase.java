@@ -12,15 +12,15 @@ import com.dkolovos.smart.farming.core.domain.port.sensors.SensorReadingReposito
  *
  * @author dimitrioskolovos
  */
-public class RecordSensorReadingUseCase {
+public class RecordSensorReadingUseCase<T extends SensorReading> {
 
-    private final SensorReadingRepository sensorReadingRepository;
+    private final SensorReadingRepository<T> sensorReadingRepository;
 
-    public RecordSensorReadingUseCase(SensorReadingRepository sensorReadingRepository) {
+    public RecordSensorReadingUseCase(SensorReadingRepository<T> sensorReadingRepository) {
         this.sensorReadingRepository = sensorReadingRepository;
     }
 
-    public Result<Boolean> execute(SensorReading sensorReading) {
+    public Result<Boolean> execute(T sensorReading) {
         try {
             validate(sensorReading);
 
