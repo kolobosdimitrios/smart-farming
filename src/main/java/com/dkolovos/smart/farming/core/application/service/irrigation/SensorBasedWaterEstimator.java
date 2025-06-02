@@ -4,6 +4,7 @@
  */
 package com.dkolovos.smart.farming.core.application.service.irrigation;
 
+import com.dkolovos.smart.farming.core.domain.service.WaterConsumptionEstimator;
 import com.dkolovos.smart.farming.core.application.usecase.Result;
 import com.dkolovos.smart.farming.core.domain.data.irrigation.FlowRateReading;
 import com.dkolovos.smart.farming.core.domain.port.irrigation.FlowRateRepository;

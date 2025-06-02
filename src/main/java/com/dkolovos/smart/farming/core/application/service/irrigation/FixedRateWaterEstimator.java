@@ -5,6 +5,7 @@
 package com.dkolovos.smart.farming.core.application.service.irrigation;
 
 
+import com.dkolovos.smart.farming.core.domain.service.WaterConsumptionEstimator;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Map;
