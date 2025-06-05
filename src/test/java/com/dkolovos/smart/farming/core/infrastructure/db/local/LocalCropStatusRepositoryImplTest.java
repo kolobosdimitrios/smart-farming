@@ -15,7 +15,7 @@ public class LocalCropStatusRepositoryImplTest {
         LocalCropStatusRepositoryImpl repo = new LocalCropStatusRepositoryImpl();
         CropStatus status = new CropStatus(
                 "field1",
-                CropStage.SEEDING,
+                CropStage.SEEDLING,
                 10,
                 LocalDate.now().plusDays(30),
                 "plant1"
