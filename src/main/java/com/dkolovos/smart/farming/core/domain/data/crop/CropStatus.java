@@ -40,6 +40,10 @@ public class CropStatus {
     public LocalDate getPredictedHarvestDate() {
         return predictedHarvestDate;
     }
+
+    public String getPlantId() {
+        return plantId;
+    }
     
     
 }
