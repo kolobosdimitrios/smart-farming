@@ -1,0 +1,14 @@
+# Maven build directory
+/target/
+
+# Compiled class files
+*.class
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
