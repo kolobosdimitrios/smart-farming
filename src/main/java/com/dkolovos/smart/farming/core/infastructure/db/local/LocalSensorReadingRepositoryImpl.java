@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
  *
  * @author dimitrioskolovos
  */
-public class LocalSensoReadingRepositoryImpl<T extends SensorReading> implements SensorReadingRepository<T> {
+public class LocalSensorReadingRepositoryImpl<T extends SensorReading> implements SensorReadingRepository<T> {
 
     private final Map<String, List<T>> store = new ConcurrentHashMap<>(); //In memory db;
 
