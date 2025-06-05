@@ -42,7 +42,7 @@ public class InMemoryIrrigationSessionManager implements IrrigationSessionPort {
         Instant end = Instant.now();
         IrrigationEvent event = new IrrigationEvent(zoneId, start, end, Duration.ZERO, "User Id");
         
-        Result result = repository.saveIrrigationEvent(event);
+        Result<Void> result = repository.saveIrrigationEvent(event);
         
         if(result.isSuccess()){
             return Result.success(new IrrigationSessionResult(zoneId, start, end));
