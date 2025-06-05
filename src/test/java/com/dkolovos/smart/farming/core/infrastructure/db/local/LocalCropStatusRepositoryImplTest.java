@@ -1,4 +1,4 @@
-package com.dkolovos.smart.farming.core.infastructure.db.local;
+package com.dkolovos.smart.farming.core.infrastructure.db.local;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
 import com.dkolovos.smart.farming.core.domain.data.crop.CropStage;
@@ -15,7 +15,7 @@ public class LocalCropStatusRepositoryImplTest {
         LocalCropStatusRepositoryImpl repo = new LocalCropStatusRepositoryImpl();
         CropStatus status = new CropStatus(
                 "field1",
-                CropStage.SEEDING,
+                CropStage.SEEDLING,
                 10,
                 LocalDate.now().plusDays(30),
                 "plant1"

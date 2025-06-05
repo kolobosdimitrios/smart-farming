@@ -6,6 +6,7 @@ package com.dkolovos.smart.farming.core.application.usecase.sensors;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
 import com.dkolovos.smart.farming.core.domain.data.sensors.SensorReading;
+import com.dkolovos.smart.farming.core.domain.data.sensors.SoilSensorReading;
 import com.dkolovos.smart.farming.core.domain.port.sensors.SensorReadingRepository;
 
 /**
@@ -48,6 +49,18 @@ public class RecordSensorReadingUseCase<T extends SensorReading> {
 
         if (sensorReading.getSignalLevel() < -100 || sensorReading.getSignalLevel() > 0) {
             throw new IllegalArgumentException("Signal strength out of range");
+        }
+
+        if (sensorReading instanceof SoilSensorReading soil) {
+            if (soil.getMoisture() < 0 || soil.getMoisture() > 100) {
+                throw new IllegalArgumentException("Moisture out of range");
+            }
+            if (soil.getpH() < 0 || soil.getpH() > 14) {
+                throw new IllegalArgumentException("pH out of range");
+            }
+            if (soil.getTemperature() < -50 || soil.getTemperature() > 60) {
+                throw new IllegalArgumentException("Temperature out of range");
+            }
         }
     }
 
