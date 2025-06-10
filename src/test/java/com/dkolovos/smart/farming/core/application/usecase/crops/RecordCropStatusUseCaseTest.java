@@ -16,7 +16,7 @@ public class RecordCropStatusUseCaseTest {
     void insertsStatusUsingRepository() {
         LocalCropStatusRepositoryImpl repo = new LocalCropStatusRepositoryImpl();
         RecordCropStatusUseCase useCase = new RecordCropStatusUseCase(repo);
-        CropStatus status = new CropStatus("f1", CropStage.SEEDING, 5, LocalDate.now(), "p1");
+        CropStatus status = new CropStatus("f1", CropStage.SEEDLING, 5, LocalDate.now(), "p1");
         Result<Void> result = useCase.execute(status);
         Assertions.assertTrue(result.isSuccess());
         Assertions.assertTrue(repo.getFieldsCropStatus("f1").getData().isPresent());
@@ -33,7 +33,7 @@ public class RecordCropStatusUseCaseTest {
     @Test
     void returnsFailureWhenRepositoryThrows() {
         RecordCropStatusUseCase useCase = new RecordCropStatusUseCase(new FailingRepo());
-        CropStatus status = new CropStatus("f1", CropStage.SEEDING, 5, LocalDate.now(), "p1");
+        CropStatus status = new CropStatus("f1", CropStage.SEEDLING, 5, LocalDate.now(), "p1");
         Result<Void> result = useCase.execute(status);
         Assertions.assertTrue(result.isFailure());
     }
