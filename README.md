@@ -17,6 +17,10 @@ The build creates `target/smart-farming-core-domain-1.0-SNAPSHOT.jar`.
 The code is organized into several packages:
 
 - **application** – use cases and services that orchestrate domain operations.
-- **domain** – core domain objects, service interfaces and ports.
-- **infrastructure** – local implementations of repositories that use in-memory storage.
+- **domain** – core domain objects, service interfaces and ports. This now includes a `Field` entity for grouping sensors.
+- **infrastructure** – local implementations of repositories that use in-memory storage, consolidated under a single package.
 
+
+Additional services include a basic soil moisture scheduler that automatically
+starts irrigation when the latest moisture reading falls below a configurable
+threshold.
