@@ -13,5 +13,6 @@ public enum CropStage {
     VEGETATIVE,
     FLOWERING,
     FRUITING,
-    HARVEST_READY
+    HARVEST_READY,
+    GERMINATION
 }
