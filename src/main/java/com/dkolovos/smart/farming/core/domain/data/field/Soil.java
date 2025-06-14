@@ -25,6 +25,10 @@ public class Soil {
         this.score = score;
         this.soilValues = new ArrayList<>();
     }
+    
+    public Soil(String id){
+        this(id, "", "", 0f);
+    }
 
     public String getId() {
         return id;
