@@ -1,6 +1,7 @@
 package com.dkolovos.smart.farming.core.application.usecase.fields;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
+import com.dkolovos.smart.farming.core.domain.data.field.Area;
 import com.dkolovos.smart.farming.core.domain.data.field.Field;
 import com.dkolovos.smart.farming.core.infrastructure.db.local.LocalFieldRepositoryImpl;
 import java.util.Optional;
@@ -12,7 +13,8 @@ public class GetFieldUseCaseTest {
     @Test
     void fetchesFieldById() {
         LocalFieldRepositoryImpl repo = new LocalFieldRepositoryImpl();
-        Field field = new Field("f1", "Field1", 100.0);
+        Area.RectangularArea rectangularArea = new Area.RectangularArea(new double[] {10.0, 20.0, 30.0 ,50.0}, new double[] {30.0, 50.0, 60.0 , 10.0});
+        Field field = new Field("f1", "Field1", rectangularArea);
         repo.insertField(field);
         GetFieldUseCase useCase = new GetFieldUseCase(repo);
         Result<Optional<Field>> result = useCase.execute("f1");

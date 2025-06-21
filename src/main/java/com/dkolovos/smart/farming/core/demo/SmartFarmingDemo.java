@@ -4,6 +4,7 @@ import com.dkolovos.smart.farming.core.application.service.irrigation.InMemoryIr
 import com.dkolovos.smart.farming.core.application.service.irrigation.SoilMoistureIrrigationScheduler;
 import com.dkolovos.smart.farming.core.application.usecase.fields.RegisterFieldUseCase;
 import com.dkolovos.smart.farming.core.application.usecase.sensors.RecordSensorReadingUseCase;
+import com.dkolovos.smart.farming.core.domain.data.field.Area;
 import com.dkolovos.smart.farming.core.domain.data.field.Field;
 import com.dkolovos.smart.farming.core.domain.data.irrigation.IrrigationSessionResult;
 import com.dkolovos.smart.farming.core.domain.data.sensors.SoilSensorReading;
@@ -25,7 +26,9 @@ public class SmartFarmingDemo {
 
         // Register a field
         RegisterFieldUseCase registerField = new RegisterFieldUseCase(fieldRepo);
-        Field field = new Field("field-1", "Main Field", 120.0);
+        
+        Area.RectangularArea rectangularArea = new Area.RectangularArea(new double[] {10.0, 20.0, 30.0 ,50.0}, new double[] {30.0, 50.0, 60.0 , 10.0});
+        Field field = new Field("field-1", "Main Field", rectangularArea);
         registerField.execute(field);
 
         // Record a soil sensor reading
