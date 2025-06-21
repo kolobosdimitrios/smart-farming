@@ -1,5 +1,6 @@
 package com.dkolovos.smart.farming.core.infrastructure.db.local;
 
+import com.dkolovos.smart.farming.core.infastracture.local_db.LocalFieldRepositoryImpl;
 import com.dkolovos.smart.farming.core.application.usecase.Result;
 import com.dkolovos.smart.farming.core.domain.data.field.Area;
 import com.dkolovos.smart.farming.core.domain.data.field.Field;

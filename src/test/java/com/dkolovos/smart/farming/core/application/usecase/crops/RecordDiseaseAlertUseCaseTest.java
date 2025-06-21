@@ -3,7 +3,7 @@ package com.dkolovos.smart.farming.core.application.usecase.crops;
 import com.dkolovos.smart.farming.core.application.usecase.Result;
 import com.dkolovos.smart.farming.core.domain.data.crop.DiseaseAlert;
 import com.dkolovos.smart.farming.core.domain.repository.crop.DiseaseAlertRepository;
-import com.dkolovos.smart.farming.core.infrastructure.db.local.LocalDiseaseAlertRepositoryImpl;
+import com.dkolovos.smart.farming.core.infastracture.local_db.LocalDiseaseAlertRepositoryImpl;
 import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

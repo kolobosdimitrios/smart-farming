@@ -2,7 +2,7 @@ package com.dkolovos.smart.farming.core.application.usecase.sensors;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
 import com.dkolovos.smart.farming.core.domain.data.sensors.SoilSensorReading;
-import com.dkolovos.smart.farming.core.infrastructure.db.local.LocalSensorReadingRepositoryImpl;
+import com.dkolovos.smart.farming.core.infastracture.local_db.LocalSensorReadingRepositoryImpl;
 import java.time.Instant;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;

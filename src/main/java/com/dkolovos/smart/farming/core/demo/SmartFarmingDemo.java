@@ -8,9 +8,9 @@ import com.dkolovos.smart.farming.core.domain.data.field.Area;
 import com.dkolovos.smart.farming.core.domain.data.field.Field;
 import com.dkolovos.smart.farming.core.domain.data.irrigation.IrrigationSessionResult;
 import com.dkolovos.smart.farming.core.domain.data.sensors.SoilSensorReading;
-import com.dkolovos.smart.farming.core.infrastructure.db.local.LocalFieldRepositoryImpl;
-import com.dkolovos.smart.farming.core.infrastructure.db.local.LocalIrrigationEventRepositoryImpl;
-import com.dkolovos.smart.farming.core.infrastructure.db.local.LocalSensorReadingRepositoryImpl;
+import com.dkolovos.smart.farming.core.infastracture.local_db.LocalFieldRepositoryImpl;
+import com.dkolovos.smart.farming.core.infastracture.local_db.LocalIrrigationEventRepositoryImpl;
+import com.dkolovos.smart.farming.core.infastracture.local_db.LocalSensorReadingRepositoryImpl;
 import java.time.Instant;
 
 /**

@@ -1,4 +1,4 @@
-package com.dkolovos.smart.farming.core.infrastructure.db.local;
+package com.dkolovos.smart.farming.core.infastracture.local_db;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
 import com.dkolovos.smart.farming.core.domain.data.field.Field;

@@ -1,5 +1,6 @@
 package com.dkolovos.smart.farming.core.infrastructure.db.local;
 
+import com.dkolovos.smart.farming.core.infastracture.local_db.LocalCropStatusRepositoryImpl;
 import com.dkolovos.smart.farming.core.application.usecase.Result;
 import com.dkolovos.smart.farming.core.domain.data.crop.CropStage;
 import com.dkolovos.smart.farming.core.domain.data.crop.CropStatus;

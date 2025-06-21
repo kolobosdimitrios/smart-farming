@@ -3,7 +3,7 @@ package com.dkolovos.smart.farming.core.application.usecase.crops;
 import com.dkolovos.smart.farming.core.application.usecase.Result;
 import com.dkolovos.smart.farming.core.domain.data.crop.PlantHealth;
 import com.dkolovos.smart.farming.core.domain.repository.crop.PlantHealthRepository;
-import com.dkolovos.smart.farming.core.infrastructure.db.local.LocalPlantHealthRepositoryImpl;
+import com.dkolovos.smart.farming.core.infastracture.local_db.LocalPlantHealthRepositoryImpl;
 import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.Assertions;

@@ -3,7 +3,7 @@ package com.dkolovos.smart.farming.core.application.usecase.fields;
 import com.dkolovos.smart.farming.core.application.usecase.Result;
 import com.dkolovos.smart.farming.core.domain.data.field.Area;
 import com.dkolovos.smart.farming.core.domain.data.field.Field;
-import com.dkolovos.smart.farming.core.infrastructure.db.local.LocalFieldRepositoryImpl;
+import com.dkolovos.smart.farming.core.infastracture.local_db.LocalFieldRepositoryImpl;
 import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
