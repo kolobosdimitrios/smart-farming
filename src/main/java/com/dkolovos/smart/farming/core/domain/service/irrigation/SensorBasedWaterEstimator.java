@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.dkolovos.smart.farming.core.application.service.irrigation;
+package com.dkolovos.smart.farming.core.domain.service.irrigation;
 
-import com.dkolovos.smart.farming.core.domain.service.WaterConsumptionEstimator;
+import com.dkolovos.smart.farming.core.domain.service.irrigation.WaterConsumptionEstimator;
 import com.dkolovos.smart.farming.core.application.usecase.Result;
 import com.dkolovos.smart.farming.core.domain.data.irrigation.FlowRateReading;
 import com.dkolovos.smart.farming.core.domain.repository.irrigation.FlowRateRepository;

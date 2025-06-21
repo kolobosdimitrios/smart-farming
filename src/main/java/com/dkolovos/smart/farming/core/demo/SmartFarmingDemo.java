@@ -1,7 +1,7 @@
 package com.dkolovos.smart.farming.core.demo;
 
-import com.dkolovos.smart.farming.core.application.service.irrigation.InMemoryIrrigationSessionManager;
-import com.dkolovos.smart.farming.core.application.service.irrigation.SoilMoistureIrrigationScheduler;
+import com.dkolovos.smart.farming.core.domain.service.irrigation.InMemoryIrrigationSessionManager;
+import com.dkolovos.smart.farming.core.domain.service.irrigation.SoilMoistureIrrigationScheduler;
 import com.dkolovos.smart.farming.core.application.usecase.fields.RegisterFieldUseCase;
 import com.dkolovos.smart.farming.core.application.usecase.sensors.RecordSensorReadingUseCase;
 import com.dkolovos.smart.farming.core.domain.data.field.Area;

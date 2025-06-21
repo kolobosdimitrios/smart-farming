@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package com.dkolovos.smart.farming.core.domain.service;
+package com.dkolovos.smart.farming.core.domain.service.irrigation;
 
 import java.time.Instant;
 

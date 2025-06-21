@@ -1,4 +1,4 @@
-package com.dkolovos.smart.farming.core.application.service.irrigation;
+package com.dkolovos.smart.farming.core.domain.service.irrigation;
 
 import com.dkolovos.smart.farming.core.domain.data.sensors.SoilSensorReading;
 import com.dkolovos.smart.farming.core.domain.repository.irrigation.IrrigationSessionPort;
