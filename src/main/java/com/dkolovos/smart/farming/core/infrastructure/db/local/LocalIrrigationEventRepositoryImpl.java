@@ -6,7 +6,7 @@ package com.dkolovos.smart.farming.core.infrastructure.db.local;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
 import com.dkolovos.smart.farming.core.domain.data.irrigation.IrrigationEvent;
-import com.dkolovos.smart.farming.core.domain.port.irrigation.IrrigationEventRepository;
+import com.dkolovos.smart.farming.core.domain.repository.irrigation.IrrigationEventRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

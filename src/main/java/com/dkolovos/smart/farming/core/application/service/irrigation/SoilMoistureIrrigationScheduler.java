@@ -1,7 +1,7 @@
 package com.dkolovos.smart.farming.core.application.service.irrigation;
 
 import com.dkolovos.smart.farming.core.domain.data.sensors.SoilSensorReading;
-import com.dkolovos.smart.farming.core.domain.port.irrigation.IrrigationSessionPort;
+import com.dkolovos.smart.farming.core.domain.repository.irrigation.IrrigationSessionPort;
 import com.dkolovos.smart.farming.core.domain.port.sensors.SensorReadingRepository;
 
 public class SoilMoistureIrrigationScheduler {

@@ -6,7 +6,7 @@ package com.dkolovos.smart.farming.core.infrastructure.db.local;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
 import com.dkolovos.smart.farming.core.domain.data.irrigation.FlowRateReading;
-import com.dkolovos.smart.farming.core.domain.port.irrigation.FlowRateRepository;
+import com.dkolovos.smart.farming.core.domain.repository.irrigation.FlowRateRepository;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;

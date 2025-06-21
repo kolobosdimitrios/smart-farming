@@ -2,7 +2,7 @@ package com.dkolovos.smart.farming.core.application.usecase.fields;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
 import com.dkolovos.smart.farming.core.domain.data.field.Field;
-import com.dkolovos.smart.farming.core.domain.port.field.FieldRepository;
+import com.dkolovos.smart.farming.core.domain.repository.field.FieldRepository;
 import java.util.Optional;
 
 public class GetFieldUseCase {

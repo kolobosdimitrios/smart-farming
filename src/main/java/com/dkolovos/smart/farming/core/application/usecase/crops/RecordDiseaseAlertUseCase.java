@@ -6,7 +6,7 @@ package com.dkolovos.smart.farming.core.application.usecase.crops;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
 import com.dkolovos.smart.farming.core.domain.data.crop.DiseaseAlert;
-import com.dkolovos.smart.farming.core.domain.port.crop.DiseaseAlertRepository;
+import com.dkolovos.smart.farming.core.domain.repository.crop.DiseaseAlertRepository;
 
 /**
  *

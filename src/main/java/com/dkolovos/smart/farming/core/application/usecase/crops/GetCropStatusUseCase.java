@@ -6,7 +6,7 @@ package com.dkolovos.smart.farming.core.application.usecase.crops;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
 import com.dkolovos.smart.farming.core.domain.data.crop.CropStatus;
-import com.dkolovos.smart.farming.core.domain.port.crop.CropStatusRepository;
+import com.dkolovos.smart.farming.core.domain.repository.crop.CropStatusRepository;
 import java.util.Optional;
 
 /**

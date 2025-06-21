@@ -6,7 +6,7 @@ package com.dkolovos.smart.farming.core.infrastructure.db.local;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
 import com.dkolovos.smart.farming.core.domain.data.crop.PlantHealth;
-import com.dkolovos.smart.farming.core.domain.port.crop.PlantHealthRepository;
+import com.dkolovos.smart.farming.core.domain.repository.crop.PlantHealthRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

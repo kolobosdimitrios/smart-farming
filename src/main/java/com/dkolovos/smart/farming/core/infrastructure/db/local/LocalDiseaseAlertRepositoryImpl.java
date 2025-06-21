@@ -6,7 +6,7 @@ package com.dkolovos.smart.farming.core.infrastructure.db.local;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
 import com.dkolovos.smart.farming.core.domain.data.crop.DiseaseAlert;
-import com.dkolovos.smart.farming.core.domain.port.crop.DiseaseAlertRepository;
+import com.dkolovos.smart.farming.core.domain.repository.crop.DiseaseAlertRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
