@@ -5,7 +5,7 @@
 package com.dkolovos.smart.farming.core.application.usecase.sensors;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.sensors.SensorReading;
+import com.dkolovos.smart.farming.core.domain.data.sensors.SensorReadingDto;
 import com.dkolovos.smart.farming.core.domain.port.sensors.SensorReadingRepository;
 import java.time.Instant;
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author dimitrioskolovos
  */
-public class GetSensorReadingsInRangeUseCase<T extends SensorReading>{
+public class GetSensorReadingsInRangeUseCase<T extends SensorReadingDto>{
     private final SensorReadingRepository<T> repository;
 
     public GetSensorReadingsInRangeUseCase(SensorReadingRepository<T> repository) {

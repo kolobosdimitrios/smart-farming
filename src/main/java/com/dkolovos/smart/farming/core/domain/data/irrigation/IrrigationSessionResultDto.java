@@ -11,14 +11,14 @@ import java.time.Instant;
  *
  * @author dimitrioskolovos
  */
-public class IrrigationSessionResult {
+public class IrrigationSessionResultDto {
      private final String zoneId;
     private final Instant startTime;
     private final Instant endTime;
     private final Duration duration;
     private final float waterConsumption;
 
-    public IrrigationSessionResult(String zoneId, Instant startTime, Instant endTime) {
+    public IrrigationSessionResultDto(String zoneId, Instant startTime, Instant endTime) {
         this.zoneId = zoneId;
         this.startTime = startTime;
         this.endTime = endTime;

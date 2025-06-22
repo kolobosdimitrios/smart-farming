@@ -1,7 +1,7 @@
 package com.dkolovos.smart.farming.core.application.usecase.sensors;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.sensors.SoilSensorReading;
+import com.dkolovos.smart.farming.core.domain.data.sensors.SoilSensorReadingDto;
 import com.dkolovos.smart.farming.core.infastracture.local_db.LocalSensorReadingRepositoryImpl;
 import java.time.Instant;
 import org.junit.jupiter.api.Assertions;
@@ -11,10 +11,10 @@ public class CheckSensorReadingExistsUseCaseTest {
 
     @Test
     void returnsTrueWhenReadingExists() {
-        LocalSensorReadingRepositoryImpl<SoilSensorReading> repo = new LocalSensorReadingRepositoryImpl<>();
-        SoilSensorReading reading = new SoilSensorReading("d1", Instant.now(), 80, -10, 10f, 20f, 7f);
+        LocalSensorReadingRepositoryImpl<SoilSensorReadingDto> repo = new LocalSensorReadingRepositoryImpl<>();
+        SoilSensorReadingDto reading = new SoilSensorReadingDto("d1", Instant.now(), 80, -10, 10f, 20f, 7f);
         repo.save(reading);
-        CheckSensorReadingExistsUseCase<SoilSensorReading> useCase = new CheckSensorReadingExistsUseCase<>(repo);
+        CheckSensorReadingExistsUseCase<SoilSensorReadingDto> useCase = new CheckSensorReadingExistsUseCase<>(repo);
         Result<Boolean> result = useCase.execute(reading);
         Assertions.assertTrue(result.isSuccess());
         Assertions.assertTrue(result.getData());

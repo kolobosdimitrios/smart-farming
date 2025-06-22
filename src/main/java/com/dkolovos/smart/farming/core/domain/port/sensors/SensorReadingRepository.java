@@ -5,7 +5,7 @@
 package com.dkolovos.smart.farming.core.domain.port.sensors;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.sensors.SensorReading;
+import com.dkolovos.smart.farming.core.domain.data.sensors.SensorReadingDto;
 import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
@@ -15,7 +15,7 @@ import java.util.Optional;
  * @author dimitrioskolovos
  * This interface can be implemented by data sources like MySQL.
  */
-public interface SensorReadingRepository<T extends SensorReading>{
+public interface SensorReadingRepository<T extends SensorReadingDto>{
 
     Result<Void> save(T reading);
 

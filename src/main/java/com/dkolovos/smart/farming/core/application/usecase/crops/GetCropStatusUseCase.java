@@ -5,7 +5,7 @@
 package com.dkolovos.smart.farming.core.application.usecase.crops;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.crop.CropStatus;
+import com.dkolovos.smart.farming.core.domain.data.crop.CropStatusDto;
 import com.dkolovos.smart.farming.core.domain.repository.crop.CropStatusRepository;
 import java.util.Optional;
 
@@ -20,7 +20,7 @@ public class GetCropStatusUseCase {
         this.repository = repository;
     }
 
-    public Result<Optional<CropStatus>> execute(String fieldId) {
+    public Result<Optional<CropStatusDto>> execute(String fieldId) {
         try {
             return repository.getFieldsCropStatus(fieldId);
         } catch (Exception e) {

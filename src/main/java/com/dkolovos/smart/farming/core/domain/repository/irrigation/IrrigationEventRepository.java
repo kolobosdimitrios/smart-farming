@@ -5,8 +5,8 @@
 package com.dkolovos.smart.farming.core.domain.repository.irrigation;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.irrigation.IrrigationEvent;
-import com.dkolovos.smart.farming.core.domain.data.irrigation.IrrigationSessionResult;
+import com.dkolovos.smart.farming.core.domain.data.irrigation.IrrigationEventDto;
+import com.dkolovos.smart.farming.core.domain.data.irrigation.IrrigationSessionResultDto;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,11 +16,11 @@ import java.util.Optional;
  */
 public interface IrrigationEventRepository {
     
-    Result<Void> saveIrrigationEvent(IrrigationEvent irrigationEvent);
+    Result<Void> saveIrrigationEvent(IrrigationEventDto irrigationEvent);
     
-    Result<Optional<List<IrrigationEvent>>> getIrrifationEventsForZone(String zoneId);
+    Result<Optional<List<IrrigationEventDto>>> getIrrifationEventsForZone(String zoneId);
     
-    Result<Void> updateIrrigationEvent(IrrigationEvent irrigationEvent);
+    Result<Void> updateIrrigationEvent(IrrigationEventDto irrigationEvent);
     
-    Result<Void> deleteIrrigationEvent(IrrigationEvent irrigationEvent);
+    Result<Void> deleteIrrigationEvent(IrrigationEventDto irrigationEvent);
 }

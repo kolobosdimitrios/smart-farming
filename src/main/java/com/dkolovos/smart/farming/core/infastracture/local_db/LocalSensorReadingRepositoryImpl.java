@@ -5,7 +5,7 @@
 package com.dkolovos.smart.farming.core.infastracture.local_db;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.sensors.SensorReading;
+import com.dkolovos.smart.farming.core.domain.data.sensors.SensorReadingDto;
 import com.dkolovos.smart.farming.core.domain.port.sensors.SensorReadingRepository;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
  *
  * @author dimitrioskolovos
  */
-public class LocalSensorReadingRepositoryImpl<T extends SensorReading> implements SensorReadingRepository<T> {
+public class LocalSensorReadingRepositoryImpl<T extends SensorReadingDto> implements SensorReadingRepository<T> {
 
     private final Map<String, List<T>> store = new ConcurrentHashMap<>(); //In memory db;
 

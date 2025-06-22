@@ -10,13 +10,13 @@ import java.time.Instant;
  *
  * @author dimitrioskolovos
  */
-public class AirSensorReading extends SensorReading {
+public class AirSensorReadingDto extends SensorReadingDto {
     
     private final float temperature;
     private final float humidity;
     private final Float co2Level;
 
-    public AirSensorReading(float temperature, float humidity, Float co2Level, String deviceId, Instant timestamp, int batteryLevel, Integer signalLevel) {
+    public AirSensorReadingDto(float temperature, float humidity, Float co2Level, String deviceId, Instant timestamp, int batteryLevel, Integer signalLevel) {
         super(deviceId, timestamp, batteryLevel, signalLevel);
         this.temperature = temperature;
         this.humidity = humidity;

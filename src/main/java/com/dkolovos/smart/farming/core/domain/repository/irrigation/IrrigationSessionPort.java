@@ -5,7 +5,7 @@
 package com.dkolovos.smart.farming.core.domain.repository.irrigation;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.irrigation.IrrigationSessionResult;
+import com.dkolovos.smart.farming.core.domain.data.irrigation.IrrigationSessionResultDto;
 
 /**
  *
@@ -13,5 +13,5 @@ import com.dkolovos.smart.farming.core.domain.data.irrigation.IrrigationSessionR
  */
 public interface IrrigationSessionPort {
     void start(String zoneId);
-    Result<IrrigationSessionResult> stop(String zoneId);
+    Result<IrrigationSessionResultDto> stop(String zoneId);
 }

@@ -1,7 +1,7 @@
 package com.dkolovos.smart.farming.core.application.usecase.fields;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.field.Field;
+import com.dkolovos.smart.farming.core.domain.data.field.FieldDto;
 import com.dkolovos.smart.farming.core.domain.repository.field.FieldRepository;
 
 public class RegisterFieldUseCase {
@@ -11,7 +11,7 @@ public class RegisterFieldUseCase {
         this.fieldRepository = fieldRepository;
     }
 
-    public Result<Void> execute(Field field) {
+    public Result<Void> execute(FieldDto field) {
         if (field == null) {
             return Result.failure(new IllegalArgumentException("Field cannot be null"));
         }

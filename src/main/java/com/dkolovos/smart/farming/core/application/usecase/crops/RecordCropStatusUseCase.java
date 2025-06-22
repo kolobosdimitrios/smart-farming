@@ -5,7 +5,7 @@
 package com.dkolovos.smart.farming.core.application.usecase.crops;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.crop.CropStatus;
+import com.dkolovos.smart.farming.core.domain.data.crop.CropStatusDto;
 import com.dkolovos.smart.farming.core.domain.repository.crop.CropStatusRepository;
 
 /**
@@ -20,7 +20,7 @@ public class RecordCropStatusUseCase {
         this.repository = repository;
     }
 
-    public Result<Void> execute(CropStatus status) {
+    public Result<Void> execute(CropStatusDto status) {
         try {
             repository.insertCropStatus(status);
             return Result.success(null);

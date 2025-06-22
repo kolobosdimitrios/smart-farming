@@ -10,13 +10,13 @@ import java.time.Instant;
  *
  * @author dimitrioskolovos
  */
-public class SoilSensorReading extends SensorReading{
+public class SoilSensorReadingDto extends SensorReadingDto{
     
     private final float temperature;
     private final float moisture;
     private final float pH;
 
-    public SoilSensorReading(
+    public SoilSensorReadingDto(
             String deviceId,
             Instant timestamp,
             int batteryLevel,

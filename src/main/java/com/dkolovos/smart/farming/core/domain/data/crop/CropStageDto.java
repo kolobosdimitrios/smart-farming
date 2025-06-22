@@ -8,7 +8,7 @@ package com.dkolovos.smart.farming.core.domain.data.crop;
  *
  * @author dimitrioskolovos
  */
-public enum CropStage {
+public enum CropStageDto {
     SEEDLING,
     VEGETATIVE,
     FLOWERING,

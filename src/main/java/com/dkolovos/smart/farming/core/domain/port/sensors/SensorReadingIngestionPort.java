@@ -5,7 +5,7 @@
 package com.dkolovos.smart.farming.core.domain.port.sensors;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.sensors.SensorReading;
+import com.dkolovos.smart.farming.core.domain.data.sensors.SensorReadingDto;
 import java.util.List;
 
 /**
@@ -14,6 +14,6 @@ import java.util.List;
  * This interface can be implemented by infrastructure code that uses MQTT clients or HTTP push handlers.
  */
 public interface SensorReadingIngestionPort {
-    Result<Void> ingest(SensorReading reading);
-    Result<Void> ingestBatch(List<SensorReading> readings);
+    Result<Void> ingest(SensorReadingDto reading);
+    Result<Void> ingestBatch(List<SensorReadingDto> readings);
 }

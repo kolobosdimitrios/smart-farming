@@ -5,7 +5,7 @@
 package com.dkolovos.smart.farming.core.application.usecase.crops;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.crop.PlantHealth;
+import com.dkolovos.smart.farming.core.domain.data.crop.PlantHealthDto;
 import com.dkolovos.smart.farming.core.domain.repository.crop.PlantHealthRepository;
 import java.util.List;
 import java.util.Optional;
@@ -21,7 +21,7 @@ public class GetPlantHealthRecordsUseCase {
         this.repository = repository;
     }
 
-    public Result<Optional<List<PlantHealth>>> execute(String plantId) {
+    public Result<Optional<List<PlantHealthDto>>> execute(String plantId) {
         try {
             return repository.getPlantHealthRecords(plantId);
         } catch (Exception e) {

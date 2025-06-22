@@ -5,7 +5,7 @@
 package com.dkolovos.smart.farming.core.infastracture.local_db;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.crop.PlantHealth;
+import com.dkolovos.smart.farming.core.domain.data.crop.PlantHealthDto;
 import com.dkolovos.smart.farming.core.domain.repository.crop.PlantHealthRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,28 +20,28 @@ import java.util.stream.Collectors;
  */
 public class LocalPlantHealthRepositoryImpl implements PlantHealthRepository {
 
-    private final Map<String, List<PlantHealth>> store = new ConcurrentHashMap<>();
+    private final Map<String, List<PlantHealthDto>> store = new ConcurrentHashMap<>();
 
     @Override
-    public Result<Void> insertPlantHealthRecord(PlantHealth plantHealth) {
+    public Result<Void> insertPlantHealthRecord(PlantHealthDto plantHealth) {
         store.computeIfAbsent(plantHealth.getPlantId(), k -> new ArrayList<>()).add(plantHealth);
         return Result.success(null);
     }
 
     @Override
-    public Result<Optional<List<PlantHealth>>> getPlantHealthRecords(String plantId) {
+    public Result<Optional<List<PlantHealthDto>>> getPlantHealthRecords(String plantId) {
         return Result.success(Optional.ofNullable(store.getOrDefault(plantId, List.of())));
     }
 
     @Override
-    public Result<Optional<List<PlantHealth>>> getAllPlantHealthRecords() {
-        List<PlantHealth> all = store.values().stream().flatMap(List::stream).collect(Collectors.toList());
+    public Result<Optional<List<PlantHealthDto>>> getAllPlantHealthRecords() {
+        List<PlantHealthDto> all = store.values().stream().flatMap(List::stream).collect(Collectors.toList());
         return Result.success(Optional.of(all));
     }
 
     @Override
-    public Result<Void> deletePlantHealthStatus(PlantHealth plantHealth) {
-        List<PlantHealth> records = store.get(plantHealth.getPlantId());
+    public Result<Void> deletePlantHealthStatus(PlantHealthDto plantHealth) {
+        List<PlantHealthDto> records = store.get(plantHealth.getPlantId());
         if (records != null) {
             records.removeIf(r -> r.equals(plantHealth));
         }
@@ -49,9 +49,9 @@ public class LocalPlantHealthRepositoryImpl implements PlantHealthRepository {
     }
 
     @Override
-    public Result<Optional<List<PlantHealth>>> findByFieldOrCondition(String fieldId, String conditionType) {
+    public Result<Optional<List<PlantHealthDto>>> findByFieldOrCondition(String fieldId, String conditionType) {
         try {
-            List<PlantHealth> result = store.getOrDefault(fieldId, List.of()).stream()
+            List<PlantHealthDto> result = store.getOrDefault(fieldId, List.of()).stream()
                     .filter(ph -> ph.getSymptoms().stream().anyMatch(symptom -> symptom.equalsIgnoreCase(conditionType)))
                     .collect(Collectors.toList());
 

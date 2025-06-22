@@ -5,7 +5,7 @@
 package com.dkolovos.smart.farming.core.domain.repository.crop;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.crop.CropStatus;
+import com.dkolovos.smart.farming.core.domain.data.crop.CropStatusDto;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,14 +15,14 @@ import java.util.Optional;
  */
 public interface CropStatusRepository {
     
-    Result<Void> insertCropStatus(CropStatus cropStatus);
+    Result<Void> insertCropStatus(CropStatusDto cropStatus);
     
-    Result<Optional<CropStatus>> getFieldsCropStatus(String fieldId);
+    Result<Optional<CropStatusDto>> getFieldsCropStatus(String fieldId);
     
-    Result<List<CropStatus>> getAllCropsStatus();
+    Result<List<CropStatusDto>> getAllCropsStatus();
     
-    Result<Void> updateCropStatus(CropStatus cropStatus);
+    Result<Void> updateCropStatus(CropStatusDto cropStatus);
     
-    Result<Void> deleteCropStatus(CropStatus cropStatus);
+    Result<Void> deleteCropStatus(CropStatusDto cropStatus);
     
 }

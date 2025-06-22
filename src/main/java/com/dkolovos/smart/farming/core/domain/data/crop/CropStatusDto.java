@@ -10,14 +10,14 @@ import java.time.LocalDate;
  *
  * @author dimitrioskolovos
  */
-public class CropStatus {
+public class CropStatusDto {
     private final String fieldId;
-    private final CropStage stage;
+    private final CropStageDto stage;
     private final int daysToNextStage;
     private final LocalDate predictedHarvestDate;
     private final String plantId;
 
-    public CropStatus(String fieldId, CropStage stage, int daysToNextStage, LocalDate predictedHarvestDate, String plantId) {
+    public CropStatusDto(String fieldId, CropStageDto stage, int daysToNextStage, LocalDate predictedHarvestDate, String plantId) {
         this.fieldId = fieldId;
         this.stage = stage;
         this.daysToNextStage = daysToNextStage;
@@ -29,7 +29,7 @@ public class CropStatus {
         return fieldId;
     }
 
-    public CropStage getStage() {
+    public CropStageDto getStage() {
         return stage;
     }
 

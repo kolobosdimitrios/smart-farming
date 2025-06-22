@@ -5,7 +5,7 @@
 package com.dkolovos.smart.farming.core.domain.repository.crop;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.crop.PlantHealth;
+import com.dkolovos.smart.farming.core.domain.data.crop.PlantHealthDto;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,13 +15,13 @@ import java.util.Optional;
  */
 public interface PlantHealthRepository {
     
-    Result<Void> insertPlantHealthRecord(PlantHealth plantHealth);
+    Result<Void> insertPlantHealthRecord(PlantHealthDto plantHealth);
     
-    Result<Optional<List<PlantHealth>>> getPlantHealthRecords(String plantId);
+    Result<Optional<List<PlantHealthDto>>> getPlantHealthRecords(String plantId);
     
-    Result<Optional<List<PlantHealth>>> getAllPlantHealthRecords();
+    Result<Optional<List<PlantHealthDto>>> getAllPlantHealthRecords();
     
-    Result<Optional<List<PlantHealth>>> findByFieldOrCondition(String fieldId, String conditionType);
+    Result<Optional<List<PlantHealthDto>>> findByFieldOrCondition(String fieldId, String conditionType);
     
-    Result<Void> deletePlantHealthStatus(PlantHealth plantHealth);
+    Result<Void> deletePlantHealthStatus(PlantHealthDto plantHealth);
 }

@@ -5,8 +5,8 @@
 package com.dkolovos.smart.farming.core.domain.service.irrigation;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.irrigation.IrrigationEvent;
-import com.dkolovos.smart.farming.core.domain.data.irrigation.IrrigationSessionResult;
+import com.dkolovos.smart.farming.core.domain.data.irrigation.IrrigationEventDto;
+import com.dkolovos.smart.farming.core.domain.data.irrigation.IrrigationSessionResultDto;
 import com.dkolovos.smart.farming.core.domain.repository.irrigation.IrrigationEventRepository;
 import com.dkolovos.smart.farming.core.domain.repository.irrigation.IrrigationSessionPort;
 import java.time.Duration;
@@ -33,19 +33,19 @@ public class InMemoryIrrigationSessionManager implements IrrigationSessionPort {
     }
 
     @Override
-    public Result<IrrigationSessionResult> stop(String zoneId) {
+    public Result<IrrigationSessionResultDto> stop(String zoneId) {
         Instant start = this.active.remove(zoneId);
         if(start == null){
             return Result.failure(new IllegalStateException("No active irrigation"));
         }
         
         Instant end = Instant.now();
-        IrrigationEvent event = new IrrigationEvent(zoneId, start, end, Duration.ZERO, "User Id");
+        IrrigationEventDto event = new IrrigationEventDto(zoneId, start, end, Duration.ZERO, "User Id");
         
         Result<Void> result = repository.saveIrrigationEvent(event);
         
         if(result.isSuccess()){
-            return Result.success(new IrrigationSessionResult(zoneId, start, end));
+            return Result.success(new IrrigationSessionResultDto(zoneId, start, end));
         }else{
             return Result.failure(new IllegalStateException("Unable to complete the termination of the event."));
         }

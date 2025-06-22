@@ -4,10 +4,10 @@ import com.dkolovos.smart.farming.core.domain.service.irrigation.InMemoryIrrigat
 import com.dkolovos.smart.farming.core.domain.service.irrigation.SoilMoistureIrrigationScheduler;
 import com.dkolovos.smart.farming.core.application.usecase.fields.RegisterFieldUseCase;
 import com.dkolovos.smart.farming.core.application.usecase.sensors.RecordSensorReadingUseCase;
-import com.dkolovos.smart.farming.core.domain.data.field.Area;
-import com.dkolovos.smart.farming.core.domain.data.field.Field;
-import com.dkolovos.smart.farming.core.domain.data.irrigation.IrrigationSessionResult;
-import com.dkolovos.smart.farming.core.domain.data.sensors.SoilSensorReading;
+import com.dkolovos.smart.farming.core.domain.data.field.AreaDto;
+import com.dkolovos.smart.farming.core.domain.data.field.FieldDto;
+import com.dkolovos.smart.farming.core.domain.data.irrigation.IrrigationSessionResultDto;
+import com.dkolovos.smart.farming.core.domain.data.sensors.SoilSensorReadingDto;
 import com.dkolovos.smart.farming.core.infastracture.local_db.LocalFieldRepositoryImpl;
 import com.dkolovos.smart.farming.core.infastracture.local_db.LocalIrrigationEventRepositoryImpl;
 import com.dkolovos.smart.farming.core.infastracture.local_db.LocalSensorReadingRepositoryImpl;
@@ -20,20 +20,20 @@ public class SmartFarmingDemo {
     public static void main(String[] args) throws InterruptedException {
         // Setup repositories
         LocalFieldRepositoryImpl fieldRepo = new LocalFieldRepositoryImpl();
-        LocalSensorReadingRepositoryImpl<SoilSensorReading> sensorRepo = new LocalSensorReadingRepositoryImpl<>();
+        LocalSensorReadingRepositoryImpl<SoilSensorReadingDto> sensorRepo = new LocalSensorReadingRepositoryImpl<>();
         LocalIrrigationEventRepositoryImpl eventRepo = new LocalIrrigationEventRepositoryImpl();
         InMemoryIrrigationSessionManager sessionManager = new InMemoryIrrigationSessionManager(eventRepo);
 
         // Register a field
         RegisterFieldUseCase registerField = new RegisterFieldUseCase(fieldRepo);
         
-        Area.RectangularArea rectangularArea = new Area.RectangularArea(new double[] {10.0, 20.0, 30.0 ,50.0}, new double[] {30.0, 50.0, 60.0 , 10.0});
-        Field field = new Field("field-1", "Main Field", rectangularArea);
+        AreaDto.RectangularArea rectangularArea = new AreaDto.RectangularArea(new double[] {10.0, 20.0, 30.0 ,50.0}, new double[] {30.0, 50.0, 60.0 , 10.0});
+        FieldDto field = new FieldDto("field-1", "Main Field", rectangularArea);
         registerField.execute(field);
 
         // Record a soil sensor reading
-        RecordSensorReadingUseCase<SoilSensorReading> recordReading = new RecordSensorReadingUseCase<>(sensorRepo);
-        SoilSensorReading reading = new SoilSensorReading(
+        RecordSensorReadingUseCase<SoilSensorReadingDto> recordReading = new RecordSensorReadingUseCase<>(sensorRepo);
+        SoilSensorReadingDto reading = new SoilSensorReadingDto(
                 "sensor-1",
                 Instant.now(),
                 90,
@@ -54,7 +54,7 @@ public class SmartFarmingDemo {
         // Stop irrigation and print result
         var result = sessionManager.stop("zone-1");
         if (result.isSuccess()) {
-            IrrigationSessionResult session = result.getData();
+            IrrigationSessionResultDto session = result.getData();
             System.out.println("Irrigation duration: " + session.getDuration().toSeconds() + " seconds");
             System.out.println("Water used: " + session.getWaterConsumption() + " liters");
         } else {

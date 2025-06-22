@@ -2,8 +2,8 @@ package com.dkolovos.smart.farming.core.infrastructure.db.local;
 
 import com.dkolovos.smart.farming.core.infastracture.local_db.LocalCropStatusRepositoryImpl;
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.crop.CropStage;
-import com.dkolovos.smart.farming.core.domain.data.crop.CropStatus;
+import com.dkolovos.smart.farming.core.domain.data.crop.CropStageDto;
+import com.dkolovos.smart.farming.core.domain.data.crop.CropStatusDto;
 import java.time.LocalDate;
 import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
@@ -14,9 +14,9 @@ public class LocalCropStatusRepositoryImplTest {
     @Test
     void insertAndRetrieveCropStatus() {
         LocalCropStatusRepositoryImpl repo = new LocalCropStatusRepositoryImpl();
-        CropStatus status = new CropStatus(
+        CropStatusDto status = new CropStatusDto(
                 "field1",
-                CropStage.SEEDLING,
+                CropStageDto.SEEDLING,
                 10,
                 LocalDate.now().plusDays(30),
                 "plant1"
@@ -25,10 +25,10 @@ public class LocalCropStatusRepositoryImplTest {
         Result<Void> insertResult = repo.insertCropStatus(status);
         Assertions.assertTrue(insertResult.isSuccess());
 
-        Result<Optional<CropStatus>> fetchResult = repo.getFieldsCropStatus("field1");
+        Result<Optional<CropStatusDto>> fetchResult = repo.getFieldsCropStatus("field1");
         Assertions.assertTrue(fetchResult.isSuccess());
         Assertions.assertTrue(fetchResult.getData().isPresent());
-        CropStatus fetched = fetchResult.getData().get();
+        CropStatusDto fetched = fetchResult.getData().get();
         Assertions.assertEquals(status.getFieldId(), fetched.getFieldId());
         Assertions.assertEquals(status.getStage(), fetched.getStage());
         Assertions.assertEquals(status.getDaysToNextStage(), fetched.getDaysToNextStage());
@@ -38,7 +38,7 @@ public class LocalCropStatusRepositoryImplTest {
     @Test
     void getFieldsCropStatusReturnsEmptyWhenNotFound() {
         LocalCropStatusRepositoryImpl repo = new LocalCropStatusRepositoryImpl();
-        Result<Optional<CropStatus>> result = repo.getFieldsCropStatus("unknown");
+        Result<Optional<CropStatusDto>> result = repo.getFieldsCropStatus("unknown");
         Assertions.assertTrue(result.isSuccess());
         Assertions.assertTrue(result.getData().isEmpty());
     }

@@ -5,7 +5,7 @@
 package com.dkolovos.smart.farming.core.infastracture.local_db;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.field.Soil;
+import com.dkolovos.smart.farming.core.domain.data.field.SoilDto;
 import com.dkolovos.smart.farming.core.domain.repository.field.SoilRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +18,11 @@ import java.util.function.Consumer;
  */
 public class LocalSoilRepositoryImpl implements SoilRepository {
 
-    private final ArrayList<Soil> soils = new ArrayList<>();
+    private final ArrayList<SoilDto> soils = new ArrayList<>();
 
     @Override
-    public Result<Void> insertSoil(Soil soil) {
-        for (Soil storeSoil : soils) {
+    public Result<Void> insertSoil(SoilDto soil) {
+        for (SoilDto storeSoil : soils) {
             if (storeSoil.getId().equals(soil.getId())) {
                 return Result.failure(new IllegalStateException("Value already inserted!"));
             }
@@ -33,7 +33,7 @@ public class LocalSoilRepositoryImpl implements SoilRepository {
     }
 
     @Override
-    public Result<Soil> getSoil(String id) {
+    public Result<SoilDto> getSoil(String id) {
         return soils.stream()
                 .filter(s -> s.getId().equals(id))
                 .findFirst()
@@ -42,13 +42,13 @@ public class LocalSoilRepositoryImpl implements SoilRepository {
     }
 
     @Override
-    public Result<List<Soil>> getAllSoils() {
+    public Result<List<SoilDto>> getAllSoils() {
         return Result.success(new ArrayList<>(soils));
     }
 
     @Override
-    public Result<Void> deleteSoil(Soil soil) {
-        Optional<Soil> match = this.soils.stream()
+    public Result<Void> deleteSoil(SoilDto soil) {
+        Optional<SoilDto> match = this.soils.stream()
                 .filter(s -> s.getId().equals(soil.getId()))
                 .findAny();
 
@@ -62,7 +62,7 @@ public class LocalSoilRepositoryImpl implements SoilRepository {
 
     @Override
     public Result<Void> deleteSoilById(String id) {
-        Optional<Soil> match = this.soils.stream()
+        Optional<SoilDto> match = this.soils.stream()
                 .filter(s -> s.getId().equals(id))
                 .findAny();
 
@@ -75,7 +75,7 @@ public class LocalSoilRepositoryImpl implements SoilRepository {
     }
 
     @Override
-    public Result<Soil> updateSoil(Soil newSoil) {
+    public Result<SoilDto> updateSoil(SoilDto newSoil) {
         for (int i = 0; i < soils.size(); i++) {
             if (soils.get(i).getId().equals(newSoil.getId())) {
                 soils.set(i, newSoil);

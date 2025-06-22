@@ -5,7 +5,7 @@
 package com.dkolovos.smart.farming.core.application.usecase.crops;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.crop.PlantHealth;
+import com.dkolovos.smart.farming.core.domain.data.crop.PlantHealthDto;
 import com.dkolovos.smart.farming.core.domain.repository.crop.PlantHealthRepository;
 
 /**
@@ -19,7 +19,7 @@ public class RecordPlantHealthUseCase {
         this.repository = repository;
     }
 
-    public Result<Void> execute(PlantHealth plantHealth) {
+    public Result<Void> execute(PlantHealthDto plantHealth) {
         try {
             repository.insertPlantHealthRecord(plantHealth);
             return Result.success(null);

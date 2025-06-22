@@ -4,7 +4,7 @@
  */
 package com.dkolovos.smart.farming.core.domain.repository.irrigation;
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.irrigation.FlowRateReading;
+import com.dkolovos.smart.farming.core.domain.data.irrigation.FlowRateReadingDto;
 import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 public interface FlowRateRepository {
     
-    Result<Void> insertFlowRateReading(FlowRateReading flowRateReading);
-    Result<Optional<List<FlowRateReading>>> getReadings(String zoneId, Instant start, Instant end);
-    Result<Void> deleteFlowRateReading(FlowRateReading flowRateReading);
+    Result<Void> insertFlowRateReading(FlowRateReadingDto flowRateReading);
+    Result<Optional<List<FlowRateReadingDto>>> getReadings(String zoneId, Instant start, Instant end);
+    Result<Void> deleteFlowRateReading(FlowRateReadingDto flowRateReading);
 }

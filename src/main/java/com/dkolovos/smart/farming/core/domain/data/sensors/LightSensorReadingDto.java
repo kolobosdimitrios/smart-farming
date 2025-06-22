@@ -10,11 +10,11 @@ import java.time.Instant;
  *
  * @author dimitrioskolovos
  */
-public class LightSensorReading extends SensorReading{
+public class LightSensorReadingDto extends SensorReadingDto{
     
     private final float intensity;
 
-    public LightSensorReading(float intensity, String deviceId, Instant timestamp, int batteryLevel, Integer signalLevel) {
+    public LightSensorReadingDto(float intensity, String deviceId, Instant timestamp, int batteryLevel, Integer signalLevel) {
         super(deviceId, timestamp, batteryLevel, signalLevel);
         this.intensity = intensity;
     }

@@ -2,13 +2,13 @@ package com.dkolovos.smart.farming.core.domain.data.field;
 
 import java.util.Objects;
 
-public class Field {
+public class FieldDto {
     private final String id;
     private final String name;
-    private final Area area;
+    private final AreaDto area;
     
 
-    public Field(String id, String name, Area area) {
+    public FieldDto(String id, String name, AreaDto area) {
         this.id = Objects.requireNonNull(id);
         this.name = Objects.requireNonNull(name);
         this.area = area;
@@ -22,7 +22,7 @@ public class Field {
         return name;
     }
 
-    public Area getArea() {
+    public AreaDto getArea() {
         return area;
     }
 }

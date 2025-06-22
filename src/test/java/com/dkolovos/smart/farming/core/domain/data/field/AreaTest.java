@@ -14,7 +14,7 @@ public class AreaTest {
 
     @Test
     void testCalculationsAreCorrectAndSafe() {
-        Area.RectangularArea rectangularArea = new Area.RectangularArea(
+        AreaDto.RectangularArea rectangularArea = new AreaDto.RectangularArea(
                 new double[]{0.0, 0.0, 1.0, 1.0},
                 new double[]{0.0, 1.0, 1.0, 0.0}
         );

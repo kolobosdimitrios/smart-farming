@@ -10,13 +10,13 @@ import java.util.List;
  *
  * @author dimitrioskolovos
  */
-public class PlantHealth {
+public class PlantHealthDto {
     private final String plantId;
     private final int healthScore; // 0–100
     private final List<String> symptoms;
     private final List<String> nutrientDeficiencies;
 
-    public PlantHealth(String plantId, int healthScore, List<String> symptoms, List<String> nutrientDeficiencies) {
+    public PlantHealthDto(String plantId, int healthScore, List<String> symptoms, List<String> nutrientDeficiencies) {
         this.plantId = plantId;
         this.healthScore = healthScore;
         this.symptoms = symptoms;

@@ -10,12 +10,12 @@ import java.time.Instant;
  *
  * @author dimitrioskolovos
  */
-public class RainStatusSensorReading extends SensorReading{
+public class RainStatusSensorReadingDto extends SensorReadingDto{
     
     private final boolean isRaining;
     private final float precipitation;
 
-    public RainStatusSensorReading(boolean isRaining, float precipitation, String deviceId, Instant timestamp, int batteryLevel, Integer signalLevel) {
+    public RainStatusSensorReadingDto(boolean isRaining, float precipitation, String deviceId, Instant timestamp, int batteryLevel, Integer signalLevel) {
         super(deviceId, timestamp, batteryLevel, signalLevel);
         this.isRaining = isRaining;
         this.precipitation = precipitation;

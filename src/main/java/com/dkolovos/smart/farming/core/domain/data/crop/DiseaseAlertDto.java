@@ -8,13 +8,13 @@ package com.dkolovos.smart.farming.core.domain.data.crop;
  *
  * @author dimitrioskolovos
  */
-public class DiseaseAlert {
+public class DiseaseAlertDto {
     private final String plantId;
     private final String diseaseName;
     private final int severityScore;
     private final String suggestedTreatment;
 
-    public DiseaseAlert(String plantId, String diseaseName, int severityScore, String suggestedTreatment) {
+    public DiseaseAlertDto(String plantId, String diseaseName, int severityScore, String suggestedTreatment) {
         this.plantId = plantId;
         this.diseaseName = diseaseName;
         this.severityScore = severityScore;

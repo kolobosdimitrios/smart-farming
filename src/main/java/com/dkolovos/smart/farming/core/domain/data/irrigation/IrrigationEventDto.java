@@ -11,7 +11,7 @@ import java.time.Instant;
  *
  * @author dimitrioskolovos
  */
-public class IrrigationEvent {
+public class IrrigationEventDto {
 
     private final String zoneId;
     private final Instant startTime;
@@ -20,7 +20,7 @@ public class IrrigationEvent {
     private final float waterVolumeUsed;
     private final String triggeredById;
 
-    public IrrigationEvent(String zoneId, Instant startTime, Instant endTime, Duration duration, String triggeredById) {
+    public IrrigationEventDto(String zoneId, Instant startTime, Instant endTime, Duration duration, String triggeredById) {
         this.zoneId = zoneId;
         this.startTime = startTime;
         this.endTime = endTime;

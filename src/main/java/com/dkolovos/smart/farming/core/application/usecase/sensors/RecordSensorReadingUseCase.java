@@ -5,15 +5,15 @@
 package com.dkolovos.smart.farming.core.application.usecase.sensors;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.sensors.SensorReading;
-import com.dkolovos.smart.farming.core.domain.data.sensors.SoilSensorReading;
+import com.dkolovos.smart.farming.core.domain.data.sensors.SensorReadingDto;
+import com.dkolovos.smart.farming.core.domain.data.sensors.SoilSensorReadingDto;
 import com.dkolovos.smart.farming.core.domain.port.sensors.SensorReadingRepository;
 
 /**
  *
  * @author dimitrioskolovos
  */
-public class RecordSensorReadingUseCase<T extends SensorReading> {
+public class RecordSensorReadingUseCase<T extends SensorReadingDto> {
 
     private final SensorReadingRepository<T> sensorReadingRepository;
 
@@ -38,7 +38,7 @@ public class RecordSensorReadingUseCase<T extends SensorReading> {
         }
     }
 
-    private void validate(SensorReading sensorReading) {
+    private void validate(SensorReadingDto sensorReading) {
         if (sensorReading == null) {
             throw new IllegalArgumentException("Sensor reading cannot be null");
         }
@@ -51,7 +51,7 @@ public class RecordSensorReadingUseCase<T extends SensorReading> {
             throw new IllegalArgumentException("Signal strength out of range");
         }
 
-        if (sensorReading instanceof SoilSensorReading soil) {
+        if (sensorReading instanceof SoilSensorReadingDto soil) {
             if (soil.getMoisture() < 0 || soil.getMoisture() > 100) {
                 throw new IllegalArgumentException("Moisture out of range");
             }

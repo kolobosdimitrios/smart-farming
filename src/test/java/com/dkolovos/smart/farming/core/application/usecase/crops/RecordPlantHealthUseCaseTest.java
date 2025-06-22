@@ -1,7 +1,7 @@
 package com.dkolovos.smart.farming.core.application.usecase.crops;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.crop.PlantHealth;
+import com.dkolovos.smart.farming.core.domain.data.crop.PlantHealthDto;
 import com.dkolovos.smart.farming.core.domain.repository.crop.PlantHealthRepository;
 import com.dkolovos.smart.farming.core.infastracture.local_db.LocalPlantHealthRepositoryImpl;
 import java.util.List;
@@ -15,24 +15,24 @@ public class RecordPlantHealthUseCaseTest {
     void insertsPlantHealthRecord() {
         LocalPlantHealthRepositoryImpl repo = new LocalPlantHealthRepositoryImpl();
         RecordPlantHealthUseCase useCase = new RecordPlantHealthUseCase(repo);
-        PlantHealth health = new PlantHealth("p1", 80, List.of("a"), List.of());
+        PlantHealthDto health = new PlantHealthDto("p1", 80, List.of("a"), List.of());
         Result<Void> result = useCase.execute(health);
         Assertions.assertTrue(result.isSuccess());
         Assertions.assertFalse(repo.getPlantHealthRecords("p1").getData().orElseThrow().isEmpty());
     }
 
     private static class FailingRepo implements PlantHealthRepository {
-        @Override public Result<Void> insertPlantHealthRecord(PlantHealth plantHealth) { throw new RuntimeException("fail"); }
-        @Override public Result<Optional<List<PlantHealth>>> getPlantHealthRecords(String plantId) { return Result.failure(new RuntimeException("fail")); }
-        @Override public Result<Optional<List<PlantHealth>>> getAllPlantHealthRecords() { return Result.failure(new RuntimeException("fail")); }
-        @Override public Result<Void> deletePlantHealthStatus(PlantHealth plantHealth) { return Result.failure(new RuntimeException("fail")); }
-        @Override public Result<Optional<List<PlantHealth>>> findByFieldOrCondition(String fieldId, String conditionType) { return Result.failure(new RuntimeException("fail")); }
+        @Override public Result<Void> insertPlantHealthRecord(PlantHealthDto plantHealth) { throw new RuntimeException("fail"); }
+        @Override public Result<Optional<List<PlantHealthDto>>> getPlantHealthRecords(String plantId) { return Result.failure(new RuntimeException("fail")); }
+        @Override public Result<Optional<List<PlantHealthDto>>> getAllPlantHealthRecords() { return Result.failure(new RuntimeException("fail")); }
+        @Override public Result<Void> deletePlantHealthStatus(PlantHealthDto plantHealth) { return Result.failure(new RuntimeException("fail")); }
+        @Override public Result<Optional<List<PlantHealthDto>>> findByFieldOrCondition(String fieldId, String conditionType) { return Result.failure(new RuntimeException("fail")); }
     }
 
     @Test
     void returnsFailureWhenRepositoryThrows() {
         RecordPlantHealthUseCase useCase = new RecordPlantHealthUseCase(new FailingRepo());
-        PlantHealth health = new PlantHealth("p1", 80, List.of("a"), List.of());
+        PlantHealthDto health = new PlantHealthDto("p1", 80, List.of("a"), List.of());
         Result<Void> result = useCase.execute(health);
         Assertions.assertTrue(result.isFailure());
     }

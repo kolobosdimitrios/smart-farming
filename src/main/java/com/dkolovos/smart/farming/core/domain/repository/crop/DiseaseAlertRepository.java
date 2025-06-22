@@ -5,7 +5,7 @@
 package com.dkolovos.smart.farming.core.domain.repository.crop;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.crop.DiseaseAlert;
+import com.dkolovos.smart.farming.core.domain.data.crop.DiseaseAlertDto;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,11 +15,11 @@ import java.util.Optional;
  */
 public interface DiseaseAlertRepository {
     
-    Result<Void> insertDiseaseAlert(DiseaseAlert diseaseAlert);
+    Result<Void> insertDiseaseAlert(DiseaseAlertDto diseaseAlert);
     
-    Result<Optional<List<DiseaseAlert>>> getDiseaseAlerts();
+    Result<Optional<List<DiseaseAlertDto>>> getDiseaseAlerts();
     
-    Result<Void> updateDiseaseAlert(DiseaseAlert diseaseAlert);
+    Result<Void> updateDiseaseAlert(DiseaseAlertDto diseaseAlert);
     
-    Result<Void> deleteDiseaseAlert(DiseaseAlert diseaseAlert);
+    Result<Void> deleteDiseaseAlert(DiseaseAlertDto diseaseAlert);
 }

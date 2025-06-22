@@ -5,7 +5,7 @@
 package com.dkolovos.smart.farming.core.application.usecase.crops;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.crop.DiseaseAlert;
+import com.dkolovos.smart.farming.core.domain.data.crop.DiseaseAlertDto;
 import com.dkolovos.smart.farming.core.domain.repository.crop.DiseaseAlertRepository;
 import java.util.List;
 import java.util.Optional;
@@ -21,7 +21,7 @@ public class GetDiseaseAlertsUseCase {
         this.repository = repository;
     }
 
-    public Result<Optional<List<DiseaseAlert>>> execute() {
+    public Result<Optional<List<DiseaseAlertDto>>> execute() {
         try {
             return repository.getDiseaseAlerts();
         } catch (Exception e) {

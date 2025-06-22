@@ -8,11 +8,11 @@ package com.dkolovos.smart.farming.core.domain.data.field;
  *
  * @author dimitrioskolovos
  */
-public class SoilValue<T> {
+public class SoilValueDto<T> {
     private final String name;
     private final T value;
 
-    public SoilValue(String name, T value) {
+    public SoilValueDto(String name, T value) {
         this.name = name;
         this.value = value;
     }

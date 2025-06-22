@@ -6,7 +6,7 @@ package com.dkolovos.smart.farming.core.domain.service.irrigation;
 
 import com.dkolovos.smart.farming.core.domain.service.irrigation.WaterConsumptionEstimator;
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.irrigation.FlowRateReading;
+import com.dkolovos.smart.farming.core.domain.data.irrigation.FlowRateReadingDto;
 import com.dkolovos.smart.farming.core.domain.repository.irrigation.FlowRateRepository;
 
 import java.time.Duration;
@@ -28,15 +28,15 @@ public class SensorBasedWaterEstimator implements WaterConsumptionEstimator {
 
     @Override
     public float estimate(String zoneId, Instant start, Instant end) {
-        Result<Optional<List<FlowRateReading>>> result = flowRateRepository.getReadings(zoneId, start, end);
+        Result<Optional<List<FlowRateReadingDto>>> result = flowRateRepository.getReadings(zoneId, start, end);
         if (result.isSuccess()) {
-            Optional<List<FlowRateReading>> optionalReadings = result.getData();
+            Optional<List<FlowRateReadingDto>> optionalReadings = result.getData();
             if (optionalReadings.isPresent()) {
                 float totalLiters = 0f;
-                List<FlowRateReading> readings = optionalReadings.get();
+                List<FlowRateReadingDto> readings = optionalReadings.get();
                 for (int i = 0; i < readings.size() - 1; i++) {
-                    FlowRateReading current = readings.get(i);
-                    FlowRateReading next = readings.get(i + 1);
+                    FlowRateReadingDto current = readings.get(i);
+                    FlowRateReadingDto next = readings.get(i + 1);
                     long seconds = Duration.between(current.getTimestamp(), next.getTimestamp()).getSeconds();
                     totalLiters += current.getRateLitersPerSecond() * seconds;
                 }

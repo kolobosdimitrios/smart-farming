@@ -1,8 +1,8 @@
 package com.dkolovos.smart.farming.core.application.usecase.crops;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.crop.CropStage;
-import com.dkolovos.smart.farming.core.domain.data.crop.CropStatus;
+import com.dkolovos.smart.farming.core.domain.data.crop.CropStageDto;
+import com.dkolovos.smart.farming.core.domain.data.crop.CropStatusDto;
 import com.dkolovos.smart.farming.core.domain.repository.crop.CropStatusRepository;
 import com.dkolovos.smart.farming.core.infastracture.local_db.LocalCropStatusRepositoryImpl;
 import java.time.LocalDate;
@@ -16,24 +16,24 @@ public class RecordCropStatusUseCaseTest {
     void insertsStatusUsingRepository() {
         LocalCropStatusRepositoryImpl repo = new LocalCropStatusRepositoryImpl();
         RecordCropStatusUseCase useCase = new RecordCropStatusUseCase(repo);
-        CropStatus status = new CropStatus("f1", CropStage.SEEDLING, 5, LocalDate.now(), "p1");
+        CropStatusDto status = new CropStatusDto("f1", CropStageDto.SEEDLING, 5, LocalDate.now(), "p1");
         Result<Void> result = useCase.execute(status);
         Assertions.assertTrue(result.isSuccess());
         Assertions.assertTrue(repo.getFieldsCropStatus("f1").getData().isPresent());
     }
 
     private static class FailingRepo implements CropStatusRepository {
-        @Override public Result<Void> insertCropStatus(CropStatus cropStatus) { throw new RuntimeException("fail"); }
-        @Override public Result<Optional<CropStatus>> getFieldsCropStatus(String fieldId) { return Result.failure(new RuntimeException("fail")); }
-        @Override public Result<java.util.List<CropStatus>> getAllCropsStatus() { return Result.failure(new RuntimeException("fail")); }
-        @Override public Result<Void> updateCropStatus(CropStatus cropStatus) { return Result.failure(new RuntimeException("fail")); }
-        @Override public Result<Void> deleteCropStatus(CropStatus cropStatus) { return Result.failure(new RuntimeException("fail")); }
+        @Override public Result<Void> insertCropStatus(CropStatusDto cropStatus) { throw new RuntimeException("fail"); }
+        @Override public Result<Optional<CropStatusDto>> getFieldsCropStatus(String fieldId) { return Result.failure(new RuntimeException("fail")); }
+        @Override public Result<java.util.List<CropStatusDto>> getAllCropsStatus() { return Result.failure(new RuntimeException("fail")); }
+        @Override public Result<Void> updateCropStatus(CropStatusDto cropStatus) { return Result.failure(new RuntimeException("fail")); }
+        @Override public Result<Void> deleteCropStatus(CropStatusDto cropStatus) { return Result.failure(new RuntimeException("fail")); }
     }
 
     @Test
     void returnsFailureWhenRepositoryThrows() {
         RecordCropStatusUseCase useCase = new RecordCropStatusUseCase(new FailingRepo());
-        CropStatus status = new CropStatus("f1", CropStage.SEEDLING, 5, LocalDate.now(), "p1");
+        CropStatusDto status = new CropStatusDto("f1", CropStageDto.SEEDLING, 5, LocalDate.now(), "p1");
         Result<Void> result = useCase.execute(status);
         Assertions.assertTrue(result.isFailure());
     }

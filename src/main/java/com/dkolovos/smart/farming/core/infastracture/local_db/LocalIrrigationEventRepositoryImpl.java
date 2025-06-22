@@ -5,7 +5,7 @@
 package com.dkolovos.smart.farming.core.infastracture.local_db;
 
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.irrigation.IrrigationEvent;
+import com.dkolovos.smart.farming.core.domain.data.irrigation.IrrigationEventDto;
 import com.dkolovos.smart.farming.core.domain.repository.irrigation.IrrigationEventRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,18 +18,18 @@ import java.util.stream.Collectors;
  */
 public class LocalIrrigationEventRepositoryImpl implements IrrigationEventRepository{
     
-    private final List<IrrigationEvent> localEvents = new ArrayList<>();
+    private final List<IrrigationEventDto> localEvents = new ArrayList<>();
    
     @Override
-    public Result<Void> saveIrrigationEvent(IrrigationEvent irrigationEvent) {
+    public Result<Void> saveIrrigationEvent(IrrigationEventDto irrigationEvent) {
         this.localEvents.add(irrigationEvent);
         return Result.success(null);
     }
 
     @Override
-    public Result<Optional<List<IrrigationEvent>>> getIrrifationEventsForZone(String zoneId) {
+    public Result<Optional<List<IrrigationEventDto>>> getIrrifationEventsForZone(String zoneId) {
          try {
-            List<IrrigationEvent> zoneEvents = localEvents.stream()
+            List<IrrigationEventDto> zoneEvents = localEvents.stream()
                 .filter(event -> event.getZoneId().equals(zoneId))
                 .collect(Collectors.toList());
 
@@ -40,12 +40,12 @@ public class LocalIrrigationEventRepositoryImpl implements IrrigationEventReposi
     }
 
     @Override
-    public Result<Void> updateIrrigationEvent(IrrigationEvent irrigationEvent) {
+    public Result<Void> updateIrrigationEvent(IrrigationEventDto irrigationEvent) {
         return Result.failure(new UnsupportedOperationException("Update not implemented in local repo."));
     }
 
     @Override
-    public Result<Void> deleteIrrigationEvent(IrrigationEvent irrigationEvent) {
+    public Result<Void> deleteIrrigationEvent(IrrigationEventDto irrigationEvent) {
         return Result.failure(new UnsupportedOperationException("Delete not implemented in local repo."));
     }
     

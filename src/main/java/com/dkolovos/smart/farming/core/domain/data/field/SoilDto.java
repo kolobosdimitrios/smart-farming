@@ -10,15 +10,15 @@ import java.util.ArrayList;
  *
  * @author dimitrioskolovos
  */
-public class Soil {
+public class SoilDto {
     
     private final String id;
     private final String name;
     private final String status;
     private final float score;
-    private final ArrayList<SoilValue> soilValues;
+    private final ArrayList<SoilValueDto> soilValues;
 
-    public Soil(String id, String name, String status, float score) {
+    public SoilDto(String id, String name, String status, float score) {
         this.id = id;
         this.name = name;
         this.status = status;
@@ -26,7 +26,7 @@ public class Soil {
         this.soilValues = new ArrayList<>();
     }
     
-    public Soil(String id){
+    public SoilDto(String id){
         this(id, "", "", 0f);
     }
 
@@ -46,15 +46,15 @@ public class Soil {
         return score;
     }
 
-    public ArrayList<SoilValue> getSoilValues() {
+    public ArrayList<SoilValueDto> getSoilValues() {
         return soilValues;
     }
     
-    public void addSoilValue(SoilValue soilValue){
+    public void addSoilValue(SoilValueDto soilValue){
         this.soilValues.add(soilValue);
     }
     
-    public SoilValue getSoilValue(int index){
+    public SoilValueDto getSoilValue(int index){
         return this.soilValues.get(index);
     }
     

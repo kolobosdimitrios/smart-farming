@@ -10,12 +10,12 @@ import java.time.Instant;
  *
  * @author dimitrioskolovos
  */
-public class FlowRateReading {
+public class FlowRateReadingDto {
     private final String zoneId;
     private final float rateLitersPerSecond;
     private final Instant timestamp;
 
-    public FlowRateReading(String zoneId, float rateLitersPerSecond, Instant timestamp) {
+    public FlowRateReadingDto(String zoneId, float rateLitersPerSecond, Instant timestamp) {
         this.zoneId = zoneId;
         this.rateLitersPerSecond = rateLitersPerSecond;
         this.timestamp = timestamp;

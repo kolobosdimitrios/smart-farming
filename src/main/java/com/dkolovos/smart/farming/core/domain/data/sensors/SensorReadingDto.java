@@ -10,14 +10,14 @@ import java.time.Instant;
  *
  * @author dimitrioskolovos
  */
-public class SensorReading {
+public class SensorReadingDto {
     
     private final String deviceId;
     private final Instant timestamp;
     private final int batteryLevel;
     private final Integer signalLevel;
 
-    public SensorReading(String deviceId, Instant timestamp, int batteryLevel, Integer signalLevel) {
+    public SensorReadingDto(String deviceId, Instant timestamp, int batteryLevel, Integer signalLevel) {
         this.deviceId = deviceId;
         this.timestamp = timestamp;
         this.batteryLevel = batteryLevel;
