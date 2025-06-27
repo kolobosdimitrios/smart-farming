@@ -9,7 +9,7 @@ package com.dkolovos.smart.farming.core.domain.data.field;
  * @author dimitrioskolovos
  *
  */
-public abstract class AreaDto {
+public abstract class AreaAbstrct {
 
     private final double[] lat;
     private final double[] lng;
@@ -22,14 +22,14 @@ public abstract class AreaDto {
         return lng;
     }
 
-    private AreaDto(double[] lat, double[] lng) {
+    private AreaAbstrct(double[] lat, double[] lng) {
         this.lat = lat;
         this.lng = lng;
     }
 
     abstract float getSurfaceSize();
 
-    public static class RectangularArea extends AreaDto {
+    public static class RectangularArea extends AreaAbstrct {
 
         public RectangularArea(double[] lat, double[] lng) {
             super(lat, lng);
@@ -52,7 +52,7 @@ public abstract class AreaDto {
             final double R = 6_371_000;
 
             // Use the “spherical excess” formula:
-            // AreaDto = | Σ [ (λᵢ₊₁ − λᵢ) * (2 + sin φᵢ + sin φᵢ₊₁) ] | * R² / 2
+            // AreaAbstrct = | Σ [ (λᵢ₊₁ − λᵢ) * (2 + sin φᵢ + sin φᵢ₊₁) ] | * R² / 2
             double total = 0.0;
             for (int i = 0; i < n; i++) {
                 int j = (i + 1) % n;
@@ -73,7 +73,7 @@ public abstract class AreaDto {
 
     }
 
-    public static class MixedShapeArea extends AreaDto {
+    public static class MixedShapeArea extends AreaAbstrct {
 
         public MixedShapeArea(double[] lat, double[] lng) {
             super(lat, lng);
@@ -96,7 +96,7 @@ public abstract class AreaDto {
             final double R = 6_371_000;
 
             // Use the “spherical excess” formula:
-            // AreaDto = | Σ [ (λᵢ₊₁ − λᵢ) * (2 + sin φᵢ + sin φᵢ₊₁) ] | * R² / 2
+            // AreaAbstrct = | Σ [ (λᵢ₊₁ − λᵢ) * (2 + sin φᵢ + sin φᵢ₊₁) ] | * R² / 2
             double total = 0.0;
             for (int i = 0; i < n; i++) {
                 int j = (i + 1) % n;

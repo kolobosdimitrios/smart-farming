@@ -2,7 +2,7 @@ package com.dkolovos.smart.farming.core.infrastructure.db.local;
 
 import com.dkolovos.smart.farming.core.infastracture.local_db.LocalFieldRepositoryImpl;
 import com.dkolovos.smart.farming.core.application.usecase.Result;
-import com.dkolovos.smart.farming.core.domain.data.field.AreaDto;
+import com.dkolovos.smart.farming.core.domain.data.field.AreaAbstrct;
 import com.dkolovos.smart.farming.core.domain.data.field.FieldDto;
 import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
@@ -13,7 +13,7 @@ public class LocalFieldRepositoryImplTest {
     @Test
     void insertAndRetrieveField() {
         LocalFieldRepositoryImpl repo = new LocalFieldRepositoryImpl();
-        AreaDto.RectangularArea rectangularArea = new AreaDto.RectangularArea(new double[] {10.0, 20.0, 30.0 ,50.0}, new double[] {30.0, 50.0, 60.0 , 10.0});
+        AreaAbstrct.RectangularArea rectangularArea = new AreaAbstrct.RectangularArea(new double[] {10.0, 20.0, 30.0 ,50.0}, new double[] {30.0, 50.0, 60.0 , 10.0});
         FieldDto field = new FieldDto("f1", "Field 1", rectangularArea);
         Result<Void> insert = repo.insertField(field);
         Assertions.assertTrue(insert.isSuccess());

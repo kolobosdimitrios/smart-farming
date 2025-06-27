@@ -5,10 +5,10 @@ import java.util.Objects;
 public class FieldDto {
     private final String id;
     private final String name;
-    private final AreaDto area;
+    private final AreaAbstrct area;
     
 
-    public FieldDto(String id, String name, AreaDto area) {
+    public FieldDto(String id, String name, AreaAbstrct area) {
         this.id = Objects.requireNonNull(id);
         this.name = Objects.requireNonNull(name);
         this.area = area;
@@ -22,7 +22,7 @@ public class FieldDto {
         return name;
     }
 
-    public AreaDto getArea() {
+    public AreaAbstrct getArea() {
         return area;
     }
 }
